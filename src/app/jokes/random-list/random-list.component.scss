@@ -1,4 +1,8 @@
 .title {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+
+  &__text {
+    margin-right: 35px;
+  }
 }

@@ -1,19 +1,15 @@
 <div class="title">
-  <h2>
-    Whoul you like to get {{ newJokesAmount }} fresh jokes every 5 seconds?
+  <h2 class="title__text">
+    Would you like to get {{ newJokesAmount }} fresh jokes every 5 seconds?
   </h2>
-  <p-toggleButton
-    [formControl]="startIntervalControl"
-    onLabel="Yes"
-    offLabel="No"
-  ></p-toggleButton>
+  <p-inputSwitch [formControl]="startIntervalControl"></p-inputSwitch>
 </div>
 
 <ng-container *ngIf="jokesStream$ | async">
   <p-table *ngIf="jokes$ | async as jokes" [value]="jokes">
     <ng-template pTemplate="header">
       <tr>
-        <th>Joke</th>
+        <th>Jokes</th>
         <th>Action</th>
       </tr>
     </ng-template>
