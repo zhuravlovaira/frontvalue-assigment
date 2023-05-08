@@ -1,1 +1,22 @@
-<p>favorites-list works!</p>
+<ng-container *ngIf="favoriteJokes$ | async as favoriteJokes">
+  <p-table [value]="favoriteJokes">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Joke</th>
+        <th>Action</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-joke>
+      <tr>
+        <td>{{ joke.value }}</td>
+        <td>
+          <p-button
+            (click)="removeFromFavorite(joke)"
+            label="Remove from favorite"
+            styleClass="p-button-outlined p-button-danger"
+          ></p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</ng-container>

@@ -13,12 +13,14 @@ import {
   filter,
   interval,
   switchMap,
+  take,
   takeUntil,
   tap,
   withLatestFrom,
 } from 'rxjs';
 import { Joke } from 'src/libs/data/jokes/joke.interface';
 import { JokesDataService } from 'src/libs/data/jokes/jokes-data.service';
+import { FavoriteJokesService } from 'src/libs/domain/favorite-jokes/favorite-jokes.service';
 
 const MAX_JOKES = 10;
 const NEW_JOKES_AMOUNT = 5;
@@ -47,10 +49,32 @@ export class RandomListComponent implements OnInit, OnDestroy {
     })
   );
 
-  constructor(private readonly jokesDataService: JokesDataService) {}
+  constructor(
+    private readonly jokesDataService: JokesDataService,
+    private readonly favoriteJokesService: FavoriteJokesService
+  ) {}
 
   ngOnInit(): void {
     this.onStartIntervalControlChange();
+  }
+
+  addToFavorite(joke: Joke) {
+    this.favoriteJokesService
+      .addFavoriteJoke$(joke)
+      .subscribe((added: boolean) => {
+        if (added) {
+          this.removeJokeFromList(joke);
+        }
+      });
+  }
+
+  private removeJokeFromList(jokeToRemove: Joke) {
+    this.jokes$.pipe(take(1)).subscribe((jokes: Joke[]) => {
+      const updatedJokes = jokes.filter(
+        (joke: Joke) => joke.id !== jokeToRemove.id
+      );
+      this.jokes$.next(updatedJokes);
+    });
   }
 
   private onStartIntervalControlChange() {
