@@ -22,9 +22,9 @@ import { Joke } from 'src/libs/data/jokes/joke.interface';
 import { JokesDataService } from 'src/libs/data/jokes/jokes-data.service';
 import { FavoriteJokesService } from 'src/libs/domain/favorite-jokes/favorite-jokes.service';
 
-const MAX_JOKES = 10;
-const NEW_JOKES_AMOUNT = 5;
-const JOKES_INTERVAL = 5000;
+export const MAX_JOKES = 10;
+export const NEW_JOKES_AMOUNT = 5;
+export const JOKES_INTERVAL = 5000;
 
 @Component({
   selector: 'app-random-list',
