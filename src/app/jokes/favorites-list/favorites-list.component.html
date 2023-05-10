@@ -7,13 +7,14 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-joke>
-      <tr>
+      <tr data-cy="favorite-jokes">
         <td>{{ joke.value }}</td>
         <td>
           <p-button
             (click)="removeFromFavorite(joke)"
             label="Remove from favorite"
             styleClass="p-button-outlined p-button-danger"
+            data-cy="remove-joke-button"
           ></p-button>
         </td>
       </tr>

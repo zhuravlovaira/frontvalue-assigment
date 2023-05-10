@@ -2,7 +2,10 @@
   <h2 class="title__text">
     Would you like to get {{ newJokesAmount }} fresh jokes every 5 seconds?
   </h2>
-  <p-inputSwitch [formControl]="startIntervalControl"></p-inputSwitch>
+  <p-inputSwitch
+    data-cy="toggle"
+    [formControl]="startIntervalControl"
+  ></p-inputSwitch>
 </div>
 
 <ng-container *ngIf="jokesStream$ | async">
@@ -14,13 +17,14 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-joke>
-      <tr>
+      <tr data-cy="random-jokes" [id]="joke.id">
         <td>{{ joke.value }}</td>
         <td>
           <p-button
             (click)="addToFavorite(joke)"
             label="Add to favorite"
             styleClass="p-button-outlined"
+            data-cy="add-joke-button"
           ></p-button>
         </td>
       </tr>
@@ -28,4 +32,4 @@
   </p-table>
 </ng-container>
 
-<p-toast></p-toast>
+<p-toast data-cy="toast"></p-toast>
