@@ -1,27 +1,40 @@
-# FrontvalueAssigment
+# Frontvalue assigment
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+App is hosted on `https://poetic-lolly-f07ce6.netlify.app`
 
-## Development server
+If you want to test the app locally please pull the project, run:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```
+npm i
+npm start
+```
 
-## Code scaffolding
+Navigate to `http://localhost:4200/`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Development details
 
-## Build
+The app is using `changeDetection: ChangeDetectionStrategy.OnPush` for all components for better performance, hence all data in the app is immutable.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`PrimeNG` components library is used for visial part.
 
-## Running unit tests
+## Unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+If you want to run unit tests locally please run:
 
-## Running end-to-end tests
+```
+npm run test
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## e2e tests
 
-## Further help
+If you want to run e2e tests locally please run:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+npm start
+```
+
+And in parallel:
+
+```
+npm run open:cypress
+```
