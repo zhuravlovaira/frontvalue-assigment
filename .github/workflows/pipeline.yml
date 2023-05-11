@@ -23,8 +23,8 @@ jobs:
       run: npm run test -- --watch=false --browsers=ChromeHeadless
 
     - name: Cypress run
-        uses: cypress-io/github-action@v5
-        with:
-          build: npm run build
-          start: npm start
-          browser: chrome
+      uses: cypress-io/github-action@v5
+      with:
+        build: npm run build
+        start: npm start
+        browser: chrome
