@@ -11,6 +11,8 @@ npm start
 
 Navigate to `http://localhost:4200/`
 
+![Main-page](https://github.com/zhuravlovaira/frontvalue-assigment/assets/17531782/ce27f9d1-f60a-4bd4-af19-f79f8a71e31f)
+
 ## Development details
 
 The app is using `changeDetection: ChangeDetectionStrategy.OnPush` for all components for better performance, hence all data in the app is immutable.
