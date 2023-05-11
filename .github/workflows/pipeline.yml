@@ -1,0 +1,31 @@
+yaml
+name: App pipeline
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Run tests
+      run: npm run test
+
+    - name: Start app server
+      run: npm run start &
+      background: true
+
+    - name: Run E2E tests
+      run: npm run test:e2e
+      env:
+        CYPRESS_baseUrl: http://localhost:4200
