@@ -2,6 +2,8 @@
 
 App is hosted on `https://poetic-lolly-f07ce6.netlify.app`
 
+You can check E2E and unit tests in the GitHub actions tab.
+
 If you want to test the app locally please pull the project, run:
 
 ```
