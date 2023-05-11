@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - master
-      
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,11 +22,11 @@ jobs:
     - name: Run tests
       run: npm run test
 
-    - name: Start app server
-      run: npm run start &
-      background: true
+    - name: Cypress run
+        uses: cypress-io/github-action@v2
 
-    - name: Run E2E tests
-      run: npm run test:e2e
-      env:
-        CYPRESS_baseUrl: http://localhost:4200
+    - name: Save video
+      uses: actions/upload-artifact@v2
+      with:
+        name: sample_spec.js.mp4
+        path: cypress/videos/sample_spec.js.mp4
